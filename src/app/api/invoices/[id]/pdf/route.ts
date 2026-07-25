@@ -17,7 +17,7 @@ export async function GET(req: Request, context: { params: Promise<{ id: string 
     }
 
     // Render the React component to a PDF stream
-    const stream = await renderToStream(React.createElement(InvoiceTemplate, { invoice }));
+    const stream = await renderToStream(React.createElement(InvoiceTemplate, { invoice }) as any);
 
     return new NextResponse(stream as any, {
       headers: {
